@@ -1,1 +1,1 @@
-//
+import './boilerplate/boilerplate.js';
