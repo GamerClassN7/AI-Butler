@@ -1,1 +1,8 @@
 @import "./boilerplate/boilerplate.scss";
+
+// List pane width in <x-ui.master-detail> (lg and up only, below lg it is full width).
+@include media-breakpoint-up(lg) {
+    .w-lg-list {
+        width: var(--list-w, 24rem);
+    }
+}
