@@ -5,7 +5,6 @@ use Illuminate\Support\Facades\Route;
 // Remove surrounding coments if customization code below is needed !!!
 Route::auth();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::get('/files/{path}/{file_name}/{public?}', [App\Http\Controllers\FileController::class, 'serv'])->where('path', '.*')->middleware(['auth'])->name('file.serv');
 Route::get('/changelog', [App\Http\Controllers\ChangelogController::class, 'index'])->middleware(['auth'])->name('changelog');
@@ -62,6 +61,19 @@ Route::prefix('system')->name('system.')->middleware(['auth', 'is-system-admin']
 
 /* BOILERPLATE routes */
 
-Route::get('/', function () {
-    return view('welcome');
+/* Wireframe – static views only, no business logic yet. */
+Route::middleware('auth')->group(function () {
+    Route::view('/', 'pages.dashboard')->name('home');
+    Route::view('/asistent', 'pages.assistant')->name('assistant.index');
+    Route::view('/rozvrh', 'pages.schedule')->name('schedule.index');
+    Route::view('/vykazy', 'pages.reports')->name('reports.index');
+    Route::view('/posta', 'pages.mail')->name('mail.index');
+    Route::view('/ukoly', 'pages.tasks')->name('tasks.index');
+    Route::view('/znalosti', 'pages.knowledge.index')->name('knowledge.index');
+    Route::view('/znalosti/detail', 'pages.knowledge.show')->name('knowledge.show');
+    Route::view('/feed', 'pages.feed')->name('feed.index');
+    Route::view('/banka', 'pages.bank')->name('bank.index');
+    Route::view('/geolokace', 'pages.locations')->name('locations.index');
+    Route::view('/nastaveni', 'pages.settings')->name('settings.index');
+    Route::view('/komponenty', 'pages.components')->name('components.index');
 });
