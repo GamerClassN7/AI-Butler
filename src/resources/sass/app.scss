@@ -167,3 +167,36 @@
 .layout-content {
     position: relative;
 }
+
+[x-cloak] { display: none !important; }
+
+// Task list rows (OrbitHelper TaskList.vue): 3px accent bar + soft accent background when selected.
+.task-row {
+    border-left: 3px solid transparent;
+
+    &:last-child { border-bottom: 0 !important; }
+    &:hover { background: var(--surface-sunken); }
+    &.is-selected {
+        border-left-color: var(--accent);
+        background: var(--bs-primary-bg-subtle);
+    }
+}
+
+.task-check {
+    width: 20px;
+    height: 20px;
+    background: transparent;
+}
+
+// Running timer dot.
+@keyframes livedot {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: .35; transform: scale(.78); }
+}
+
+.live-dot {
+    display: inline-block;
+    animation: livedot 1.4s ease-in-out infinite;
+
+    @media (prefers-reduced-motion: reduce) { animation: none; }
+}
