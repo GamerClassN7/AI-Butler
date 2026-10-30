@@ -7,7 +7,7 @@ use SteelAnts\LaravelBoilerplate\Attributes\AllowInModal;
 
 /**
  * Generic modal form for the wireframe phase – renders the given fields, saves nothing.
- * Field: ['label' => 'Název', 'type' => 'text|textarea|select|date|time|datetime-local|email|number|password', 'options' => [...]].
+ * Field: ['label' => 'Název', 'type' => 'text|textarea|select|checkboxes|note|color|date|time|datetime-local|email|number|password', 'options' => [...]].
  * Types (optional): ['imap' => ['label' => 'IMAP', 'icon' => 'fas fa-server', 'description' => '…', 'disabled' => false, 'fields' => [...]]]
  * – step 1 picks a type from clickable tiles, step 2 shows that type's fields. Never use a select for the type.
  * Replace with a real Livewire FormComponent per module once logic exists.

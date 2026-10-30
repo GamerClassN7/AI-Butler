@@ -37,6 +37,16 @@
                     <x-form::textarea :label="$field['label']" group-class="mb-3" rows="4" />
                 @elseif ($fieldType === 'select')
                     <x-form::select :label="$field['label']" :options="$field['options'] ?? []" group-class="mb-3" />
+                @elseif ($fieldType === 'checkboxes')
+                    <div class="mb-3">
+                        <label class="form-label">{{ $field['label'] }}</label>
+                        @foreach ($field['options'] ?? [] as $value => $optionLabel)
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="cb-{{ $loop->parent->index }}-{{ $loop->index }}">
+                                <label class="form-check-label" for="cb-{{ $loop->parent->index }}-{{ $loop->index }}">{{ $optionLabel }}</label>
+                            </div>
+                        @endforeach
+                    </div>
                 @elseif ($fieldType === 'note')
                     <p class="small text-body-secondary">{{ $field['label'] }}</p>
                 @else

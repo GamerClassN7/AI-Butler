@@ -74,6 +74,7 @@ Route::middleware('auth')->group(function () {
     Route::view('/feed', 'pages.feed')->name('feed.index');
     Route::view('/banka', 'pages.bank')->name('bank.index');
     Route::view('/geolokace', 'pages.locations')->name('locations.index');
-    Route::view('/nastaveni', 'pages.settings')->name('settings.index');
+    Route::view('/nastaveni', 'pages.settings.index')->name('settings.index');
     Route::view('/komponenty', 'pages.components')->name('components.index');
 });
+
