@@ -1,52 +1,13 @@
 <div class="layout-nav {{ Cookie::get('layout-nav') }}" id="layout-nav">
     <div class="sidebar">
         <div class="sidebar-header">
-            <div class="dropdown">
-                <div class="d-flex align-items-center">
-                    <div class="app-nav-header flex-grow-1" data-bs-toggle="dropdown">
-                        <div class="app-nav-logo random-bg-2">
-                            {{-- <img src="{{ asset('storage/images/logo.png') }}" width="32px" height="32px"> --}}
-                            DT
-                        </div>
-                        <div class="app-nav-header-content nav-collapsed-hide">
-                            <div class="fw-semibold">{{ config('app.name', 'Laravel') }}</div>
-                            <small class="text-body-secondary">steelants.cz</small>
-                        </div>
-                        <div class="ms-auto nav-collapsed-hide">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chevron-expand" viewBox="0 0 16 16">
-                                <path fill-rule="evenodd" d="M3.646 9.146a.5.5 0 0 1 .708 0L8 12.793l3.646-3.647a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 0-.708m0-2.292a.5.5 0 0 0 .708 0L8 3.207l3.646 3.647a.5.5 0 0 0 .708-.708l-4-4a.5.5 0 0 0-.708 0l-4 4a.5.5 0 0 0 0 .708"/>
-                            </svg>
-                        </div>
-                    </div>
-
-                    <div class="dropdown-menu">
-                        <a class="dropdown-item" href="#">
-                            <div class="dropdown-img random-bg-2">
-                                SA
-                            </div>
-                            {{-- <div class="dropdown-img">
-                                <img src="{{ asset('storage/images/logo.png') }}" width="2rem" height="2rem">
-                            </div> --}}
-                            <div class="lh-1">
-                                <div class="fw-semibold">Steelants</div>
-                                <small class="text-body-secondary">{{ __('1 member') }}</small>
-                            </div>
-                        </a>
-                        <a class="dropdown-item" href="#">
-                            {{-- <div class="dropdown-img random-bg-3">
-                                A
-                            </div> --}}
-                            <div class="dropdown-img">
-                                <img src="{{ asset('storage/images/logo.png') }}" width="2rem" height="2rem">
-                            </div>
-                            <div class="lh-1">
-                                <div class="fw-semibold">Anthill</div>
-                                <small class="text-body-secondary">{{ __('42 members') }}</small>
-                            </div>
-                        </a>
-                    </div>
+            <a class="app-nav-header text-reset text-decoration-none" href="{{ route('home') }}">
+                <x-boilerplate::icon-tile class="app-nav-logo" icon="fas fa-user-tie" size="sm" />
+                <div class="app-nav-header-content nav-collapsed-hide">
+                    <div class="fw-semibold">{{ config('app.name', 'Laravel') }}</div>
+                    <small class="text-body-secondary">{{ __('Osobní asistent') }}</small>
                 </div>
-            </div>
+            </a>
         </div>
         <div class="sidebar-content">
             <ul class="app-nav nav flex-column">
@@ -113,8 +74,7 @@
                 <div class="dropdown-menu">
                     <div class="dropdown-header d-flex align-items-center">
                         <div class="fw-semibold me-auto">{{ Auth::user()->name }}</div>
-                        <small class="text-body-tertiary">v1.23</small>
-                    </div>
+                                            </div>
 
                     <a class="dropdown-item" href="{{ route('profile.index') }}">
                         <i class="dropdown-ico  fas fa-user"></i>
@@ -149,3 +109,5 @@
         </div>
     </div>
 </div>
+
+@include('partials.navigation-mobile')

@@ -1,36 +1,19 @@
+{{-- Bottom bar below lg. Items come from the "mobile-menu" registered in GenerateMenus – never hardcode links here. --}}
 <div class="layout-nav-mobile">
     <ul class="app-nav nav">
-        <li class="nav-item is-active nav-item-mobile">
-            <a class="nav-link" href="#">
-                <i class="nav-link-ico fas fa-home"></i>
-                <apan class="nav-link-content">{{ __('Home') }}</apan>
-            </a>
-        </li>
+        @foreach ($mobileMenuItems as $item)
+            <li class="nav-item nav-item-mobile {{ ($item->isActive() || $item->isUse()) ? 'is-active' : '' }}">
+                <a class="nav-link" href="{{ route($item->route) }}">
+                    <i class="nav-link-ico {{ $item->icon }}"></i>
+                    <span class="nav-link-content">{{ __($item->title) }}</span>
+                </a>
+            </li>
+        @endforeach
         <li class="nav-item nav-item-mobile">
-            <a class="nav-link" href="#">
-                <i class="nav-link-ico fas fa-users"></i>
-                <span class="nav-link-content">{{ __('Link') }}</span>
-            </a>
-        </li>
-        <li class="nav-item nav-item-mobile">
-            <a class="nav-link" href="#">
-                <i class="nav-link-ico fas fa-cog"></i>
-                <span class="nav-link-content">{{ __('Test') }}</span>
-            </a>
-        </li>
-
-        <li class="mt-4 text-muted"><small>{{ __('System') }}</small></li>
-        <li class="nav-item {{ request()->routeIs('system.log.index') ? 'is-active' : '' }}">
-            <a class="nav-link" href="{{ route('system.log.index') }}">
-                <i class="nav-link-ico fas fa-bug"></i>
-                {{ __('Log') }}
-            </a>
-        </li>
-         <li class="nav-item {{ request()->routeIs('system.audit.index') ? 'is-active' : '' }}">
-            <a class="nav-link" href="{{ route('system.audit.index') }}">
-                <i class="nav-link-ico fas fa-eye"></i>
-                {{ __('Audit') }}
-            </a>
+            <button type="button" class="nav-link w-100 border-0 bg-transparent" onclick="document.getElementById('layout-nav').classList.toggle('layout-nav-open')">
+                <i class="nav-link-ico fas fa-bars"></i>
+                <span class="nav-link-content">{{ __('Víc') }}</span>
+            </button>
         </li>
     </ul>
 </div>

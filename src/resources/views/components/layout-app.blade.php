@@ -51,8 +51,6 @@
                 </div>
             @endif
 
-            @include('partials.navigation-mobile')
-
             @if($withoutWrapper ?? false)
                 {{ $slot }}
             @else

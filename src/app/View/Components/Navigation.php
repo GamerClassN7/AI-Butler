@@ -21,6 +21,7 @@ class Navigation extends Component
     {
         return view('components.navigation', [
             'mainMenuItems'   => Menu::get('main-menu')?->items() ?? [],
+            'mobileMenuItems' => Menu::get('mobile-menu')?->items() ?? [],
             'systemMenuItems' => Menu::get('system-menu')?->items() ?? [],
         ]);
     }
