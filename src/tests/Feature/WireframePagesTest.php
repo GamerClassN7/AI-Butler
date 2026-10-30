@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Models\User;
+use App\Support\SettingsSections;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use PHPUnit\Framework\Attributes\DataProvider;
 use Tests\TestCase;
@@ -28,6 +29,15 @@ class WireframePagesTest extends TestCase
             ->assertOk()
             ->assertSee('layout-nav-mobile', false)
             ->assertSee(route('knowledge.index'), false);
+    }
+
+    public function test_every_settings_section_renders(): void
+    {
+        $this->actingAs(User::factory()->create());
+
+        foreach (array_keys(SettingsSections::all()) as $section) {
+            $this->get(route('settings.show', $section))->assertOk()->assertSee(route('settings.show', $section), false);
+        }
     }
 
     public function test_guest_is_redirected_to_login(): void

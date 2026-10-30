@@ -7,7 +7,7 @@
         ['compatible', 'Ollama (lokálně)', 'fas fa-house-laptop', true, 'qwen3:14b, bge-m3'],
     ];
 @endphp
-<x-ui.section title="AI modely">
+<x-ui.section>
     <p class="small text-body-secondary">Připojení poskytovatelé. Klíč se ukládá šifrovaně a nejde zpětně zobrazit.</p>
     <div class="list-group list-flat">
         @foreach ($providers as [$key, $label, $icon, $configured, $model])

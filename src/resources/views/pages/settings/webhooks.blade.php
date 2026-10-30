@@ -10,7 +10,7 @@
         ['label' => 'Odesílané události', 'type' => 'checkboxes', 'options' => $events],
     ];
 @endphp
-<x-ui.section title="Webhooky">
+<x-ui.section>
     <x-slot:actions>
         <x-ui.add-button label="Přidat" title="Přidat webhook" class="btn-sm" :fields="$webhookFields" />
     </x-slot:actions>

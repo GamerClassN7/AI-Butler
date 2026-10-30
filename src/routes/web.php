@@ -75,6 +75,8 @@ Route::middleware('auth')->group(function () {
     Route::view('/banka', 'pages.bank')->name('bank.index');
     Route::view('/geolokace', 'pages.locations')->name('locations.index');
     Route::view('/nastaveni', 'pages.settings.index')->name('settings.index');
+    Route::view('/nastaveni/{section}', 'pages.settings.show')->whereIn('section', array_keys(App\Support\SettingsSections::all()))->name('settings.show');
     Route::view('/komponenty', 'pages.components')->name('components.index');
 });
+
 

@@ -33,8 +33,8 @@
             [['label' => 'Prefix dotazu (jen e5 / nomic, např. „query: “)'], ['label' => 'Prefix dokumentu (např. „passage: “)']]],
     ];
 @endphp
-<x-ui.section title="AI joby">
-    <p class="small text-body-secondary">Která úloha běží na kterém modelu. Úloha bez výjimky použije hlavního agenta.</p>
+<x-ui.section>
+    <p class="small text-body-secondary">Úloha bez výjimky použije hlavního agenta.</p>
 
     <div class="panel d-flex align-items-center gap-3 p-3 mb-3">
         <x-boilerplate::icon-tile icon="fas fa-asterisk" color="primary" />

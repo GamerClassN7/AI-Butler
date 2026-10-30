@@ -1,4 +1,4 @@
-<x-ui.section title="Aplikace">
+<x-ui.section>
     <x-ui.setting-row label="Instalace" help="AI-Butler lze nainstalovat jako samostatnou aplikaci (PWA) – do dolní lišty na mobilu i jako okno na počítači.">
         <button class="btn btn-light"><i class="fas fa-download me-1"></i> Nainstalovat aplikaci</button>
     </x-ui.setting-row>

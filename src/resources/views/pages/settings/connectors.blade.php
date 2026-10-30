@@ -12,7 +12,7 @@
         [ConnectorProvider::BankNotices, 'Firemní účet', 'ČSOB · z účtu Práce', null, null, true],
     ];
 @endphp
-<x-ui.section title="Konektory">
+<x-ui.section>
     <x-slot:actions>
         <x-ui.add-button label="Přidat" title="Přidat konektor" class="btn-sm" :types="ConnectorProvider::pickerTypes()" />
     </x-slot:actions>

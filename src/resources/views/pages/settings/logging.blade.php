@@ -1,4 +1,4 @@
-<x-ui.section title="Logování">
+<x-ui.section>
     <p class="small text-body-secondary">Kolik se drží a jak podrobně se zapisuje.</p>
     <x-ui.setting-row label="Uchování" help="Chyby se drží rok kvůli dohledávání, ostatní záznamy podle tohoto počtu dní.">
         <div class="input-group" style="max-width: 12rem">

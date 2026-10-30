@@ -1,4 +1,4 @@
-<x-ui.section title="Znalosti">
+<x-ui.section>
     <p class="small text-body-secondary">Přístup agentů a vyhledávání. Model pro embeddingy se volí v AI jobech, endpoint v AI modelech.</p>
     <x-ui.setting-row label="Osobní znalosti pro agenty" help="Smí MCP agenti číst prostor Osobní? Ve výchozím stavu vidí jen Projekty.">
         <div class="form-check form-switch mb-0">

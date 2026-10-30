@@ -7,7 +7,7 @@
         ['Finance – měsíční cíl dosažen', true, true], ['Finance – pozadu za plánem', true, true],
     ];
 @endphp
-<x-ui.section title="Notifikace">
+<x-ui.section>
     {{-- No in-app notification centre – alerts go out by push or e-mail only. --}}
     <p class="small text-body-secondary">Co ti aplikace posílá a kudy. Push se doručí na zařízení povolená v sekci Aplikace.</p>
     <div class="table-responsive">

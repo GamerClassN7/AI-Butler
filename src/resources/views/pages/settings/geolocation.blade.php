@@ -2,7 +2,7 @@
     $zones = [['Kancelář', '#3b82f6', '50.1035', '14.4378', 150], ['Domov', '#22c55e', '50.0420', '14.4590', 100]];
     $zoneFields = [['label' => 'Název zóny (např. Kancelář)'], ['label' => 'Zeměpisná šířka (např. 50.0755)'], ['label' => 'Zeměpisná délka (např. 14.4378)'], ['label' => 'Rádius (m)', 'type' => 'number'], ['label' => 'Barva zóny', 'type' => 'color']];
 @endphp
-<x-ui.section title="Geolokace">
+<x-ui.section title="Sběr polohy">
     <p class="small text-body-secondary">Jak často se sbírá poloha a co se z ní tvoří.</p>
     <x-ui.setting-row label="Přesnost">
         <select class="form-select">
