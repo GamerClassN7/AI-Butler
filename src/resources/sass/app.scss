@@ -161,3 +161,9 @@
         border-bottom: 0;
     }
 }
+
+// Absolutely positioned helpers (e.g. hidden .btn-check inputs) must stay inside the scroll container,
+// otherwise they extend the document and the page gets a second scrollbar.
+.layout-content {
+    position: relative;
+}
