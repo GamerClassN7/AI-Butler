@@ -147,3 +147,17 @@
         font-size: .9em;
     }
 }
+
+// Rozvrh uses all vertical space on desktop: panel fills the viewport, no bottom padding under it.
+@include desktop() {
+    .layout-content .content:has(.schedule-fill) {
+        padding-bottom: 0;
+    }
+
+    .schedule-fill {
+        height: calc(100dvh - 1rem);
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        border-bottom: 0;
+    }
+}

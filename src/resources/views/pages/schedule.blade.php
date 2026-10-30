@@ -56,15 +56,15 @@
 
 @php
     // One grid body (hour gutter + day columns + events + now line) – used by the week grid and the phone day view.
-    $renderBody = function ($bodyDays) use ($hourPx, $gutter, $events, $weekStart, $columnStyle, $customers, $fmtTime, $today, $nowTop) {
-        return view('pages.partials.schedule-grid-body', compact('bodyDays', 'hourPx', 'gutter', 'events', 'weekStart', 'columnStyle', 'customers', 'fmtTime', 'today', 'nowTop'));
+    $renderBody = function ($bodyDays, $fill = false) use ($hourPx, $gutter, $events, $weekStart, $columnStyle, $customers, $fmtTime, $today, $nowTop) {
+        return view('pages.partials.schedule-grid-body', compact('bodyDays', 'fill', 'hourPx', 'gutter', 'events', 'weekStart', 'columnStyle', 'customers', 'fmtTime', 'today', 'nowTop'));
     };
 @endphp
 
 <x-layout-app>
     <div class="container-fluid px-lg-4">
         {{-- Desktop / tablet: WeekGrid --}}
-        <div class="panel d-none d-lg-flex flex-column">
+        <div class="panel schedule-fill d-none d-lg-flex flex-column">
             <div class="d-flex flex-wrap align-items-center gap-2 border-bottom px-3 py-2">
                 <h1 class="fs-5 fw-bold mb-0 me-2">Rozvrh</h1>
                 <x-ui.period-nav :value="$today->toDateString()" />
@@ -95,7 +95,7 @@
                 @endforeach
             </div>
 
-            {!! $renderBody($days) !!}
+            {!! $renderBody($days, fill: true) !!}
 
             <div class="d-flex flex-wrap align-items-center gap-3 border-top py-2 px-3 text-body-secondary" style="font-size: 11.5px">
                 @foreach ($legend as $item)

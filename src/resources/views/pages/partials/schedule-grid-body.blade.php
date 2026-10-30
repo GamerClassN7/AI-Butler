@@ -1,5 +1,5 @@
 {{-- ScheduleGridBody: hour gutter, day columns (working-hours shading), events, now line. Starts scrolled to 7:00. --}}
-<div class="sched-scroll overflow-y-auto overflow-x-hidden" style="max-height: calc(100vh - 15rem)" x-data x-init="$el.scrollTop = {{ 7 * $hourPx }}">
+<div class="sched-scroll overflow-y-auto overflow-x-hidden {{ $fill ? 'flex-grow-1' : '' }}" style="{{ $fill ? 'min-height: 0' : 'max-height: calc(100vh - 15rem)' }}" x-data x-init="$el.scrollTop = {{ 7 * $hourPx }}">
     <div class="position-relative d-grid" style="grid-template-columns: {{ $gutter }}px repeat({{ $bodyDays->count() }}, minmax(0, 1fr)); height: {{ 24 * $hourPx }}px">
         <div class="position-relative border-end">
             @foreach (range(1, 23) as $hour)
