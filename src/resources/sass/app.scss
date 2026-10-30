@@ -1,8 +1,149 @@
 @import "./boilerplate/boilerplate.scss";
 
+// Design tokens ported from OrbitHelper (Rozvrh / Výkazy). Mapped onto Bootstrap vars where possible
+// so the boilerplate dark theme switches them too.
+:root {
+    --line: var(--bs-border-color);
+    --line-soft: var(--bs-tertiary-bg);
+    --control: #cbd5e1;
+    --weekend: #fef3c7;
+    --surface: var(--bs-body-bg);
+    --surface-sunken: var(--bs-secondary-bg);
+    --accent: var(--bs-primary);
+}
+
+[data-bs-theme="dark"] {
+    --control: #475569;
+    --weekend: #26210f;
+}
+
+.font-mono {
+    font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, monospace;
+}
+
+// Bordered surface used by Rozvrh / Výkazy toolbars, grids and stat panels.
+.panel {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: .5rem;
+}
+
+// Flat page section (title row + content, no card chrome).
+.section + .section {
+    margin-top: 2rem;
+}
+
+.section-title {
+    font-size: .8125rem;
+    font-weight: 600;
+    letter-spacing: .04em;
+    text-transform: uppercase;
+    color: var(--bs-secondary-color);
+}
+
+// Rows separated by hairlines only – used instead of bordered list groups.
+.list-flat {
+    --bs-list-group-border-color: var(--line);
+    --bs-list-group-bg: transparent;
+
+    > .list-group-item {
+        border-left: 0;
+        border-right: 0;
+        border-radius: 0;
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    > .list-group-item-action {
+        padding-left: .5rem;
+        padding-right: .5rem;
+        border-radius: .5rem;
+        border-color: transparent;
+    }
+}
+
 // List pane width in <x-ui.master-detail> (lg and up only, below lg it is full width).
 @include media-breakpoint-up(lg) {
     .w-lg-list {
         width: var(--list-w, 24rem);
+    }
+}
+
+// Schedule grid (OrbitHelper Schedule/*.vue).
+.sched-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--line) transparent;
+}
+
+.sched-event {
+    position: absolute;
+    border-radius: 4px;
+    padding: 2px 6px;
+    overflow: hidden;
+    user-select: none;
+    color: #fff;
+    border: 1px solid rgba(0, 0, 0, .14);
+
+    &.is-outline {
+        background: transparent !important;
+        border: 2px solid currentColor;
+    }
+}
+
+.sched-event-time {
+    font-family: 'JetBrains Mono', ui-monospace, monospace;
+    font-size: 10px;
+    font-weight: 500;
+    opacity: .92;
+}
+
+.sched-event-title {
+    font-size: 11.5px;
+    font-weight: 700;
+    line-height: 1.2;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+// Shared 52x52 "add" FAB on phone layouts (Rozvrh + Výkazy).
+.fab-button {
+    position: fixed;
+    right: 1rem;
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0));
+    z-index: 95;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    border: 0;
+    background: var(--accent);
+    color: #fff;
+    font-size: 1.5rem;
+    line-height: 1;
+    box-shadow: 0 4px 14px rgba(20, 40, 80, .24);
+
+    @include desktop() {
+        display: none;
+    }
+}
+
+.bg-weekend { background-color: var(--weekend) !important; }
+.bg-line-soft { background-color: var(--line-soft) !important; }
+.bg-surface-sunken { background-color: var(--surface-sunken) !important; }
+
+// Boilerplate .badge is inline-flex without cross-axis alignment – with FA7 icons the glyph and text drift apart.
+.badge {
+    align-items: center;
+    line-height: 1;
+
+    .badge-icon {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: .9em;
     }
 }

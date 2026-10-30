@@ -12,7 +12,7 @@
 ])
 
 <{{ $href ? 'a' : 'div' }} @if ($href) href="{{ $href }}" @endif
-    {{ $attributes->class(['list-group-item', 'list-group-item-action' => $href, 'active' => $active, 'd-flex gap-3 align-items-start py-3']) }}>
+    {{ $attributes->class(['list-group-item', 'list-group-item-action' => $href, 'active' => $active, 'd-flex gap-3 align-items-center py-3']) }}>
     @if ($avatar)
         <x-avatar :name="$avatar" size="sm" />
     @elseif ($icon)
@@ -33,5 +33,7 @@
         @endif
         {{ $slot }}
     </div>
-    {{ $trailing ?? '' }}
+    @isset($trailing)
+        <div class="flex-shrink-0 d-flex align-items-center gap-1">{{ $trailing }}</div>
+    @endisset
 </{{ $href ? 'a' : 'div' }}>
